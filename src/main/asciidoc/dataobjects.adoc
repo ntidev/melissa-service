@@ -1,0 +1,89 @@
+= Cheatsheets
+
+[[Event]]
+== Event
+
+++++
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[description]]`description`|`String`|-
+|[[eventData]]`eventData`|`String`|-
+|[[from]]`from`|`String`|-
+|[[id]]`id`|`String`|-
+|[[messageId]]`messageId`|`String`|-
+|[[time]]`time`|`String`|-
+|[[to]]`to`|`String`|-
+|[[type]]`type`|`String`|-
+|===
+
+[[Message]]
+== Message
+
+++++
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[applicationId]]`applicationId`|`String`|-
+|[[direction]]`direction`|`link:enums.html#Direction[Direction]`|-
+|[[from]]`from`|`String`|-
+|[[id]]`id`|`String`|-
+|[[media]]`media`|`Array of String`|-
+|[[owner]]`owner`|`String`|-
+|[[segmentCount]]`segmentCount`|`Number (int)`|-
+|[[tag]]`tag`|`String`|-
+|[[text]]`text`|`String`|-
+|[[time]]`time`|`String`|-
+|[[to]]`to`|`Array of String`|-
+|===
+
+[[MessageEvent]]
+== MessageEvent
+
+++++
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[description]]`description`|`String`|-
+|[[message]]`message`|`link:dataobjects.html#Message[Message]`|-
+|[[time]]`time`|`String`|-
+|[[to]]`to`|`String`|-
+|[[type]]`type`|`String`|-
+|===
+
+[[Sms]]
+== Sms
+
+++++
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[date]]`date`|`String`|-
+|[[direction]]`direction`|`link:enums.html#Direction[Direction]`|-
+|[[from]]`from`|`String`|-
+|[[id]]`id`|`String`|-
+|[[media]]`media`|`Array of String`|-
+|[[messageId]]`messageId`|`String`|-
+|[[status]]`status`|`link:enums.html#Status[Status]`|-
+|[[tag]]`tag`|`String`|-
+|[[tenant]]`tenant`|`String`|-
+|[[text]]`text`|`String`|-
+|[[to]]`to`|`String`|-
+|===
+

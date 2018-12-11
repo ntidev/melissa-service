@@ -1,0 +1,6 @@
+{
+    "database.user": "dev",
+    "database.password": "dev123",
+    "database.url": "jdbc:mysql://server-dev/melissa",
+    "api.rootToken": "155d63a9-44d0-4288-b367-roottoken"
+}

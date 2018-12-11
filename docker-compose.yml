@@ -1,0 +1,43 @@
+version: '2'
+services:
+    
+  #MariaDB Server
+  melissa-dbserver:
+    restart: always
+    image: mariadb:10.2
+    networks:
+      - melissa_network
+    volumes:
+      - ./docker/database:/docker-entrypoint-initdb.d
+      - melissa-db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_DATABASE: ${DB_NAME}
+      
+  melissa-service:
+    restart: always
+    image: ntidev/melissa-service:dev
+    ports: 
+      - 8095:8095
+    networks:
+      - melissa_network
+#      - default
+    volumes:
+        - ./etc:/app/etc
+    environment:
+      ROOT_TOKEN: ${ROOT_TOKEN}
+      DATABASE_USER: root
+      DATABASE_PASSWORD: ${DB_PASSWORD}
+      DATABASE_URL: jdbc:mysql://melissa-dbserver/${DB_NAME}
+    depends_on:
+      - melissa-dbserver
+     
+networks:
+  melissa_network:
+#  default:
+#    external:
+#      name: other_network
+    
+volumes:
+  melissa-db:
