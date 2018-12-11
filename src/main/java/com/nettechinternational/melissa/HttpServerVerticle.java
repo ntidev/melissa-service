@@ -52,7 +52,7 @@ public class HttpServerVerticle extends AbstractVerticle {
 
         // Health Check
         HealthCheckHandler healthCheckHandler = HealthCheckHandler.create(vertx);
-        healthCheckHandler.register("notification.service", future -> future.complete(Status.OK()));
+        healthCheckHandler.register("melissa.service", future -> future.complete(Status.OK()));
         router.get("/health").handler(healthCheckHandler);
 
         NotifyApi notifyRouter = new NotifyApi(vertx);
@@ -256,7 +256,7 @@ public class HttpServerVerticle extends AbstractVerticle {
                         .put("data", message.getValue("data"))
                         .put("timestamp", new Date().getTime());
 
-                // Notify to all clients;
+                // Notify all clients;
                 clients.parallelStream()
                         .forEach(c -> {
                             LOG.info("Sending message to {}", c.getToken().getUsername());

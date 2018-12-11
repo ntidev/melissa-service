@@ -10,10 +10,8 @@ services:
     volumes:
       - ./docker/database:/docker-entrypoint-initdb.d
       - melissa-db:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_ROOT_HOST: "%"
-      MYSQL_DATABASE: ${DB_NAME}
+    env_file:
+      - .env
       
   melissa-service:
     restart: always
@@ -25,11 +23,8 @@ services:
 #      - default
     volumes:
         - ./etc:/app/etc
-    environment:
-      ROOT_TOKEN: ${ROOT_TOKEN}
-      DATABASE_USER: root
-      DATABASE_PASSWORD: ${DB_PASSWORD}
-      DATABASE_URL: jdbc:mysql://melissa-dbserver/${DB_NAME}
+    env_file:
+      - .env
     depends_on:
       - melissa-dbserver
      
