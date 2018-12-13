@@ -2,7 +2,8 @@
 Melissa-service
 ===============
 
-[![GitHub version](https://badge.fury.io/gh/ntidev%2Fmelissa-service.svg)](https://badge.fury.io/gh/ntidev%2Fmelissa-service)
+[![GitHub version](https://badge.fury.io/gh/ntidev%2Fmelissa-service.svg)](https://badge.fury.io/gh/ntidev%2Fmelissa-service) [![Docker autobuild](https://img.shields.io/docker/automated/ntidev/melissa-service.svg)](https://hub.docker.com/r/ntidev/melissa-service/builds/)
+![](https://img.shields.io/docker/build/ntidev/melissa-service.svg)
 
 ## Run on secure mode (wss):
 
