@@ -78,10 +78,14 @@ public class HttpServerVerticle extends AbstractVerticle {
                 .consumes("application/json")
                 .produces("application/json")
                 .handler(auth);
+        
+        notifyRouter.addRoutes(router);
+        tokenRouter.addRoutes(router);
+        applicationRouter.addRoutes(router);
 
-        router.mountSubRouter("/api/notify", notifyRouter.getRouter());
-        router.mountSubRouter("/api/token", tokenRouter.gerRouter());
-        router.mountSubRouter("/api/application", applicationRouter.gerRouter());
+//        router.mountSubRouter("/api/notify", notifyRouter.getRouter());
+//        router.mountSubRouter("/api/token", tokenRouter.gerRouter());
+//        router.mountSubRouter("/api/application", applicationRouter.gerRouter());
 
         vertx.createHttpServer(createServerOptions())
                 .requestHandler(router::accept)

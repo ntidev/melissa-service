@@ -18,10 +18,10 @@ public class NotifyApi {
         this.vertx = vertx;
     }
 
-    public Router getRouter() {
-        Router router = Router.router(vertx);
-        router.post("/").handler(this::notfy);
-        return router;
+    public void addRoutes(Router router) {
+//        Router router = Router.router(vertx);
+        router.post("/api/notify").handler(this::notfy);
+//        return router;
     }
 
     private void notfy(RoutingContext context) {

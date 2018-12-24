@@ -22,12 +22,12 @@ public class ApplicationApi {
         applicationService = ApplicationService.createProxy(vertx);
     }
 
-    public Router gerRouter() {
-        Router router = Router.router(vertx);
-        router.post("/").handler(this::createApp);
-        router.get("/").handler(this::getApps);
-        router.get("/:id").handler(this::getApp);
-        return router;
+    public void addRoutes(Router router) {
+//        Router router = Router.router(vertx);
+        router.post("/api/application").handler(this::createApp);
+        router.get("/api/application").handler(this::getApps);
+        router.get("/api/application/:id").handler(this::getApp);
+//        return router;
     }
 
     private void getApp(RoutingContext context) {

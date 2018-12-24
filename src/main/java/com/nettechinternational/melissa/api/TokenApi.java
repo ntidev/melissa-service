@@ -23,12 +23,12 @@ public class TokenApi {
         tokenService = TokenService.createProxy(vertx);
     }
 
-    public Router gerRouter() {
-        Router router = Router.router(vertx);
-        router.post("/").handler(this::createToken);
-        router.get("/").handler(this::getTokens);
-        router.delete("/:token").handler(this::deleteToken);
-        return router;
+    public void addRoutes(Router router) {
+//        Router router = Router.router(vertx);
+        router.post("/api/token").handler(this::createToken);
+        router.get("/api/token").handler(this::getTokens);
+        router.delete("/api/token/:token").handler(this::deleteToken);
+//        return router;
     }
 
     private void createToken(RoutingContext context) {
