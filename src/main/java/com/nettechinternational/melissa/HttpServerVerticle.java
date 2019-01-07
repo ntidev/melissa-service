@@ -74,11 +74,8 @@ public class HttpServerVerticle extends AbstractVerticle {
         ApplicationService appService = ApplicationService.createProxy(vertx);
         ApplicationTokenAuth auth = ApplicationTokenAuth.create(appService, rootToken);
 
-        router.route("/api/*")
-                .consumes("application/json")
-                .produces("application/json")
-                .handler(auth);
-        
+        router.route().handler(auth);
+
         notifyRouter.addRoutes(router);
         tokenRouter.addRoutes(router);
         applicationRouter.addRoutes(router);
@@ -86,7 +83,6 @@ public class HttpServerVerticle extends AbstractVerticle {
 //        router.mountSubRouter("/api/notify", notifyRouter.getRouter());
 //        router.mountSubRouter("/api/token", tokenRouter.gerRouter());
 //        router.mountSubRouter("/api/application", applicationRouter.gerRouter());
-
         vertx.createHttpServer(createServerOptions())
                 .requestHandler(router::accept)
                 .websocketHandler(createWebSocketHandler())
